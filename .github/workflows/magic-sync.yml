@@ -1,0 +1,27 @@
+name: Magic Scryfall Daily Sync
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # every day at 3 AM UTC
+  workflow_dispatch:     # allow manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps
+        run: npm install
+
+      - name: Run sync script
+        run: ts-node scripts/sync-scryfall.ts
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

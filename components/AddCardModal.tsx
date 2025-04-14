@@ -13,7 +13,6 @@ import {
 import { X, Search, ChevronRight } from 'lucide-react-native';
 import { useDebounce } from 'use-debounce';
 import { Card } from '@/types/card';
-import { CardApiService } from '@/services/cardApi';
 
 interface AddCardModalProps {
   visible: boolean;
@@ -64,8 +63,8 @@ export default function AddCardModal({
     setError(null);
     
     try {
-      const cards = await CardApiService.searchCards(query);
-      setSearchResults(cards);
+      // const cards = await CardApiService.searchCards(query);
+      // setSearchResults(cards);
     } catch (error) {
       setError('Failed to search cards. Please try again.');
       setSearchResults([]);
