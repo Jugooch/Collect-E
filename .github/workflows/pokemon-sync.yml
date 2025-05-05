@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - run: ts-node scripts/sync-pokemon.ts
+      - run: npm run sync:pokemon
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

@@ -1,5 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
-import axios from 'axios';
+const { createClient } = require('@supabase/supabase-js');
+const axios = require('axios');
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
