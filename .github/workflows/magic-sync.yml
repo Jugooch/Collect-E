@@ -18,7 +18,7 @@ jobs:
           node-version: 18
 
       - name: Install deps
-        run: npm install --legacy-peer-deeps
+        run: npm install --legacy-peer-deps
 
       - name: Run sync script
         run: npm run sync:magic
